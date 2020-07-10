@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font: 20px Arial, Helvetica, sans-serif;
+}
+/* Topnav */
+#Topnav{
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: rgb(168, 168, 168);
+}
+#Topnav a{
+    text-decoration: none;
+    color: black;
+}
+#Topnav div{
+    height: 80px;
+}
+/* Left */
+#Left{
+    display: flex;
+    flex: 1;
+    order: 1;
+}
+#Left img{
+    height: 80px;
+}
+/* Middle */
+#Middle{
+    display: flex;
+    flex: 3;
+    order: 2;
+    justify-content: center;
+    align-items: center;
+}
+#Middle a, .Dropbtn{
+    padding: 28.5px 20px;
+}
+#Middle a:hover, .Dropdown:hover{
+    background-color: gray;
+}
+.Dropdown:hover .Dropdown-content{
+    display: flex;
+}
+button:hover{
+    cursor: pointer;
+}
+.Dropdown-content{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: rgb(168, 168, 168);
+    min-width: inherit;
+    margin: 0 0;
+}
+.Dropdown-content a{
+    padding: 0 40px;
+    background-color: rgb(168, 168, 168);
+}
+.Dropbtn{
+    font-size: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.Dropbtn{
+    border: none;
+    outline: none;
+    background-color: inherit;
+    font-family: inherit;
+}
+/* Right */
+#Right{
+    display: flex;
+    flex: 1;
+    order: 3;
+    justify-content: center;
+    align-items: center;
+}
+#frm1{
+    display: flex;
+    justify-content: center;
+}
