@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Babylon Template</title>
+
+        <style>
+            html, body {
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            #renderCanvas {
+                width: 100%;
+                height: 100%;
+                touch-action: none;
+            }
+        </style>
+
+        <script src="https://preview.babylonjs.com/babylon.js"></script>
+        <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+        <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+    </head>
+
+   <body>
+
+    <canvas id="renderCanvas" touch-action="none"></canvas> <!-- touch-action="none" for best results from PEP -->
+
+    <script>
+        var canvas = document.getElementById("renderCanvas"); // Get the canvas element
+        var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
+
+        /******* Add the create scene function ******/
+        var createScene = function () {
+
+            // Create the scene space
+            var scene = new BABYLON.Scene(engine);
+
+            // Add a camera to the scene and attach it to the canvas
+            var camera = new BABYLON.ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 2, 2, new BABYLON.Vector3(0,0,5), scene);
+            camera.attachControl(canvas, true);
+
+            // Add lights to the scene
+            var light1 = new BABYLON.HemisphericLight("HemiLight", new BABYLON.Vector3(0, 30, 0), scene);
+
+            var light2 = new BABYLON.HemisphericLight("HemiLight", new BABYLON.Vector3(0, -30, 0), scene);
+
+            // The colors of the light itself and the color of the point in the middle of the light hitting an object
+            light1.specular = new BABYLON.Color3(0,0,0);
+            light2.specular = new BABYLON.Color3(0,0,0);
+
+            // Background color
+
+            
+            // The textures
+            var sun_surface = new BABYLON.StandardMaterial("sun_surface", scene);
+            sun_surface.diffuseTexture = new BABYLON.Texture("sun-surface.png", scene);
+            
+            var mercury_surface = new BABYLON.StandardMaterial("mercury_surface", scene);
+            mercury_surface.diffuseTexture = new BABYLON.Texture("mercury-surface.png", scene);
+
+            var venus_surface = new BABYLON.StandardMaterial("venus_surface", scene);
+            venus_surface.diffuseTexture = new BABYLON.Texture("venus-surface.png", scene);
+
+            var earth_surface = new BABYLON.StandardMaterial("earth_surface", scene);
+            earth_surface.diffuseTexture = new BABYLON.Texture("earth-surface.png", scene);
+            
+            var mars_surface = new BABYLON.StandardMaterial("mars_surface", scene);
+	        mars_surface.diffuseTexture = new BABYLON.Texture("mars-surface.png", scene);
+
+            var jupiter_surface = new BABYLON.StandardMaterial("jupiter_surface", scene);
+            jupiter_surface.diffuseTexture = new BABYLON.Texture("jupiter-surface.png", scene);
+
+            var saturn_surface = new BABYLON.StandardMaterial("saturn_surface", scene);
+            saturn_surface.diffuseTexture = new BABYLON.Texture("saturn-surface.png", scene);
+            
+            var uranus_surface = new BABYLON.StandardMaterial("uranus_surface", scene);
+            uranus_surface.diffuseTexture = new BABYLON.Texture("uranus-surface.png", scene);
+            
+            var neptune_surface = new BABYLON.StandardMaterial("neptune_surface", scene);
+	        neptune_surface.diffuseTexture = new BABYLON.Texture("neptune-surface.png", scene);
+
+            // Add and manipulate meshes in the scene
+            var sun = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 10, segments: 16}, scene);
+            sun.position = new BABYLON.Vector3(0,0,0);
+            sun.material = sun_surface;
+
+            var mercury = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 1, segments: 16}, scene);
+            mercury.position = new BABYLON.Vector3(10,0,0);
+            mercury.material = mercury_surface; 
+
+            var venus = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 1, segments: 16}, scene);
+            venus.position = new BABYLON.Vector3(15,0,0);
+            venus.material = venus_surface;
+
+            var earth = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 1, segments: 16}, scene);
+            earth.position = new BABYLON.Vector3(20,0,0);
+            earth.material = earth_surface;
+
+            var mars = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 2, segments: 16}, scene);
+            mars.position = new BABYLON.Vector3(25,0,0);
+            mars.material = mars_surface; 
+
+            var jupiter = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 1, segments: 16}, scene);
+            jupiter.position = new BABYLON.Vector3(30,0,0);
+            jupiter.material = jupiter_surface;
+
+            var saturn = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 1, segments: 16}, scene);
+            saturn.position = new BABYLON.Vector3(35,0,0);
+            saturn.material = saturn_surface; 
+       
+            var uranus = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 1, segments: 16}, scene);
+            uranus.position = new BABYLON.Vector3(40,0,0);
+            uranus.material = uranus_surface;
+
+            var neptune = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 1, segments: 16}, scene);
+            neptune.position = new BABYLON.Vector3(45,0,0);
+            neptune.material = neptune_surface;
+
+            const skybox = BABYLON.MeshBuilder.CreateBox('skyBox', { size: 1000.0 }, scene);
+            const skyboxMaterial = new BABYLON.StandardMaterial('skyBoxMaterial', scene);
+            skyboxMaterial.backFaceCulling = false;
+            skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("https://raw.githubusercontent.com/TrevorDev/gltfModels/master/basisTestAssets/env.dds", scene);
+            skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+            skyboxMaterial.disableLighting = true;
+            skybox.material = skyboxMaterial;
+
+            return scene;
+        };
+        /******* End of the create scene function ******/
+
+        var scene = createScene(); //Call the createScene function
+
+        // Register a render loop to repeatedly render the scene
+        engine.runRenderLoop(function () {
+                scene.render();
+        });
+
+        // Watch for browser/canvas resize events
+        window.addEventListener("resize", function () {
+                engine.resize();
+        });
+    </script>
+
+   </body>
+
+</html>
