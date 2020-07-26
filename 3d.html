@@ -54,7 +54,7 @@
             light2.specular = new BABYLON.Color3(0,0,0);
 
             // Background color
-
+            scene.clearColor = new BABYLON.Color3(0,0,0);
             
             // The textures
             var sun_surface = new BABYLON.StandardMaterial("sun_surface", scene);
@@ -121,13 +121,13 @@
             neptune.position = new BABYLON.Vector3(45,0,0);
             neptune.material = neptune_surface;
 
-            const skybox = BABYLON.MeshBuilder.CreateBox('skyBox', { size: 1000.0 }, scene);
-            const skyboxMaterial = new BABYLON.StandardMaterial('skyBoxMaterial', scene);
-            skyboxMaterial.backFaceCulling = false;
-            skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("https://raw.githubusercontent.com/TrevorDev/gltfModels/master/basisTestAssets/env.dds", scene);
-            skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-            skyboxMaterial.disableLighting = true;
-            skybox.material = skyboxMaterial;
+            // const skybox = BABYLON.MeshBuilder.CreateBox('skyBox', { size: 1000.0 }, scene);
+            // const skyboxMaterial = new BABYLON.StandardMaterial('skyBoxMaterial', scene);
+            // skyboxMaterial.backFaceCulling = false;
+            // skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("https://raw.githubusercontent.com/TrevorDev/gltfModels/master/basisTestAssets/env.dds", scene);
+            // skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+            // skyboxMaterial.disableLighting = true;
+            // skybox.material = skyboxMaterial;
 
             return scene;
         };
