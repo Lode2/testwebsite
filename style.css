@@ -3,7 +3,7 @@
     padding: 0;
 }
 body{
-    font: 20px Arial, Helvetica, sans-serif;
+    font: 20px Arial black, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
 }
@@ -11,12 +11,13 @@ body{
 #Topnav{
     display: flex;
     flex-wrap: nowrap;
-    background-color: white;
+    background-color: darkgray;
     order: 1;
+    z-index: 3;
 }
 #Topnav a{
     text-decoration: none;
-    color: black;
+    color: white;
 }
 #Topnav div{
     height: 80px;
@@ -40,9 +41,10 @@ body{
 }
 #Middle a, .Dropbtn{
     padding: 28.5px 20px;
+    color: white;
 }
-#Middle a:hover, .Dropdown:hover{
-    background-color: gray;
+#Middle a:hover, .Dropdown:hover .Dropbtn{
+    color: black;
 }
 .Dropdown:hover .Dropdown-content{
     display: flex;
@@ -54,13 +56,13 @@ button:hover{
     display: none;
     flex-direction: column;
     position: absolute;
-    background-color: rgb(168, 168, 168);
+    background-color: darkgray;
     min-width: inherit;
     margin: 0 0;
 }
 .Dropdown-content a{
     padding: 0 40px;
-    background-color: rgb(168, 168, 168);
+    background-color: darkgray;
 }
 .Dropbtn{
     font-size: 20px;
@@ -84,21 +86,93 @@ button:hover{
 #frm1{
     display: flex;
     justify-content: center;
+    border-radius: 10px;
 }
+input[type=text]{
+    /* width: 100%; */
+    padding: 4px 10px;
+    /* margin: 8px 0; */
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
 /* Main */
-#main{
+main{
     display: flex;
-    width: 45%;
+    /* width: 45%;
     left: 27.5%;
-    right: 27.5%;
+    right: 27.5%; */
+    width: 100%;
     order: 2;
     align-self: center;
+    flex-direction: column;
+    /* background-color: black; */
+    color: black;
+    background-color: white;
 }
+/* section{
+    height: 50vh;
+    margin: 25vh 10% 25vh 0;
+    padding: 0 1%;
+    width: 40%;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+    align-self: flex-end;
+    border-radius: 20px;
+} */
 /* Bottom nav */
 #Bottomnav{
     display: flex;
     width: 100%;
-    height: 200px;
-    background-color: black;
+    height: 80px;
+    background-color: darkgray;
     order: 3;
+}
+/* middenstuk */
+
+/* .imgs{
+    height: 100vh;
+    margin: 25vh 0 25vh 0;
+    padding: 0 1%;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.mainsection{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    background-image: url(selfrepeating1.png);
+    justify-content: center;
+}
+.sectionclouds{
+    display: flex;
+    height: 50vh;
+    margin: 5vh 0 0 0;
+    padding: 0 1%;
+    width: 40%;
+    position: absolute;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+}
+/* .imgs{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    align-self: flex-end; */
 }
