@@ -2,6 +2,13 @@
     margin: 0;
     padding: 0;
 }
+html{
+    scroll-behavior: smooth;
+    scroll-snap-type: mandatory;
+    scroll-snap-points-y: repeat(100vh);
+    scroll-snap-type: y mandatory;
+    scroll-margin-top: 100px;
+}
 body{
     font: 20px Arial black, Helvetica, sans-serif;
     display: flex;
@@ -14,6 +21,8 @@ body{
     background-color: darkgray;
     order: 1;
     z-index: 3;
+    position: sticky;
+    scroll-snap-align: start;
 }
 #Topnav a{
     text-decoration: none;
@@ -97,6 +106,11 @@ input[type=text]{
     border-radius: 10px;
     box-sizing: border-box;
   }
+input[type=button]{
+    padding: 4px 10px;
+    border-radius: 10px;
+}    
+
 /* Main */
 main{
     display: flex;
@@ -109,43 +123,8 @@ main{
     flex-direction: column;
     /* background-color: black; */
     color: black;
-    background-color: white;
+    background-color: white;  
 }
-/* section{
-    height: 50vh;
-    margin: 25vh 10% 25vh 0;
-    padding: 0 1%;
-    width: 40%;
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: gray;
-    align-self: flex-end;
-    border-radius: 20px;
-} */
-/* Bottom nav */
-#Bottomnav{
-    display: flex;
-    width: 100%;
-    height: 80px;
-    background-color: darkgray;
-    order: 3;
-}
-/* middenstuk */
-
-/* .imgs{
-    height: 100vh;
-    margin: 25vh 0 25vh 0;
-    padding: 0 1%;
-    width: 100%;
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 .mainsection{
     height: 100vh;
     width: 100%;
@@ -153,11 +132,12 @@ main{
     display: flex;
     background-image: url(selfrepeating1.png);
     justify-content: center;
+    scroll-snap-align: start;
 }
 .sectionclouds{
     display: flex;
     height: 50vh;
-    margin: 5vh 0 0 0;
+    margin: 0 0 0 0;
     padding: 0 1%;
     width: 40%;
     position: absolute;
@@ -166,13 +146,37 @@ main{
     align-items: center;
     color: white;
     text-align: center;
-    font-size: 25px;
+    font-size: 35px;
 }
-/* .imgs{
-    height: 100vh;
-    width: 100%;
-    position: absolute;
-    z-index: 1;
+#sectionclouds1{
+    font-size: 60px;
+    animation-name: voorbeeld;
+    animation-duration: 1.5s;
+}
+@keyframes voorbeeld{
+    from {transform: translateY(-500px);}
+    to {transform: translateY(0px);}
+}
+#welcomeimg{
     display: flex;
-    align-self: flex-end; */
+    height: 45vh;
+    top: 40vh;
+    bottom: 15vh;
+    position: absolute;
+    animation-name: img1;
+    animation-duration: 2s;
+}
+@keyframes img1{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+/* Bottom nav */
+#Bottomnav{
+    display: flex;
+    width: 100%;
+    height: 80px;
+    background-color: darkgray;
+    order: 3;
+    scroll-snap-align: start;
 }

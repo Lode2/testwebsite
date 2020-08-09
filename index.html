@@ -21,7 +21,7 @@
             <a href="#"><img id="Websitelogo" src="logo.png"></a>
         </div>
         <div id="Middle">
-            <a href="#">Home</a>
+            <a href="#welcome">Home</a>
             <div class="Dropdown">
                 <button class="Dropbtn">Subjects&nbsp;<i class="fa fa-caret-down"></i>
                 </button>
@@ -31,15 +31,15 @@
                     <a href="Subjects/Relativity/Relativity.html">Relativity</a>
                 </div>   
             </div>           
-            <a href="#">News</a>
+            <a href="#news">News</a>
             <a href="#">Contact</a>
-            <a href="#">About us</a>
+            <a href="#about">About us</a>
             <a href="3d.html">3d</a>
             <a href="test.html">test</a>
         </div>
         <div id="Right">
             <form id="frm1">
-                <input type="text" name="searchbox">
+                <input id="text" type="text" name="searchbox" placeholder="Search here...">
                 <input type="button" onclick="myFunction()" value="Submit">
               </form>
         </div>
@@ -60,34 +60,35 @@
             </canvas>
             
         </section> -->
-    <section class="mainsection">
-        <!-- <a class="ahref" href="#"><img class="imgs" src="quantum.png"></a> -->
-        <div class="sectionclouds">
-            Welcome to Physcs explained!
+    <section class="mainsection" id="welcome">
+        <div class="sectionclouds" id="sectionclouds1">
+            Welcome to Physics explained!
         </div>
+        <img src="quantum.png" id="welcomeimg">
     </section>
-    <section class="mainsection">
-        <!-- <a href="#"><img class="imgs" src="quantum.png"></a> -->
+    <section class="mainsection" id="about">
         <div class="sectionclouds">
             On this website we will try and explain everything physics. From starter to university level difficulty.
         </div>
+        <img src="physicsfun.png" id="welcomeimg">
     </section>
-    <section class="mainsection">
-        <!-- <a href="#"><img class="imgs" src="quantum.png"></a> -->
+    <section class="mainsection" id="news">
         <div class="sectionclouds">
             Visit the news section, where we will cover all the latest research and fiction-like discoveries in physics.
         </div>
+        <img src="quantum.png" id="welcomeimg">
     </section>
-    <section class="mainsection">
-        <!-- <a href="#"><img class="imgs" src="quantum.png"></a> -->
+    <section class="mainsection" id="questions">
         <div class="sectionclouds">
-            Contact us if you have any questions, or visit the forums and ask the community!        </div>
+            Contact us if you have any questions, or visit the forums and ask the community!
+        </div>
+        <img src="quantum.png" id="welcomeimg">
     </section>
-    <section class="mainsection">
-        <!-- <a href="#"><img class="imgs" src="quantum.png"></a> -->
+    <section class="mainsection" id="end">
         <div class="sectionclouds">
             Have fun exploring and learning all the things physics has to offer!
         </div>
+        <img src="quantum.png" id="welcomeimg">
     </section>
         <!-- <a class="imgs" href="#"><img src="quantum.png"></a>
         <section id="section1">
@@ -113,90 +114,5 @@
     <nav id="Bottomnav">
 
     </nav>
-    <script>
-var canvas = document.getElementById("renderCanvas"); // Get the canvas element
-        var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
-
-        /******* Add the create scene function ******/
-        var createScene = function () {
-
-            // Create the scene space
-            var scene = new BABYLON.Scene(engine);
-
-            // Add a camera to the scene and attach it to the canvas
-            var camera = new BABYLON.UniversalCamera("camera", new BABYLON.Vector3(0, 0, -10), scene);   
-            // camera.attachControl(canvas, true);
-
-            // Add lights to the scene
-            var light1 = new BABYLON.HemisphericLight("HemiLight", new BABYLON.Vector3(0, 30, 0), scene);
-
-            // var light2 = new BABYLON.HemisphericLight("HemiLight", new BABYLON.Vector3(0, -30, 0), scene);
-
-            // The colors of the light itself and the color of the point in the middle of the light hitting an object
-            light1.specular = new BABYLON.Color3(0,0,0);
-            // light2.specular = new BABYLON.Color3(0,0,0);
-
-            // Background color
-            scene.clearColor = new BABYLON.Color3(0,0,0);
-            
-            // The textures
-            // var sun_surface = new BABYLON.StandardMaterial("sun_surface", scene);
-            // sun_surface.diffuseTexture = new BABYLON.Texture("sun-surface.png", scene);
-
-            // Add and manipulate meshes in the scene
-            var sun = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 1, segments: 2}, scene);
-            sun.position = new BABYLON.Vector3(0,0,0);
-            // sun.material = sun_surface;
-
-            // Add a particle system
-            var particleSystem = new BABYLON.GPUParticleSystem("particles", { capacity:1000 }, scene);
-
-            particleSystem.particleTexture = new BABYLON.Texture("sun-surface.png", scene);
-            particleSystem.emitter = new BABYLON.Vector3(0, 1, 0); // the starting object, the emitter
-            // particleSystem.minEmitBox = new BABYLON.Vector3(-1, 0, 0); // Starting all from
-            // particleSystem.maxEmitBox = new BABYLON.Vector3(1, 0, 0); // To...
-
-            // Colors of all particles
-            // particleSystem.color1 = new BABYLON.Color4(0.7, 0.8, 1.0, 1.0);
-            // particleSystem.color2 = new BABYLON.Color4(0.2, 0.5, 1.0, 1.0);
-            // particleSystem.colorDead = new BABYLON.Color4(0, 0, 0.2, 0.0);
-
-            // Size of each particle (random between...
-            particleSystem.minSize = 0.05;
-            particleSystem.maxSize = 0.5;
-
-            // Life time of each particle (random between...
-            // particleSystem.minLifeTime = 10000000;
-            // particleSystem.maxLifeTime = 1.5;
-            particleSystem.direction1 = new BABYLON.Vector3(-7, 8, 3);
-            // Emission rate
-            particleSystem.emitRate = 150;
-
-            particleSystem.gravity = new BABYLON.Vector3(0, -10, 0);
-
-            particleSystem.minEmitPower = 5;
-  particleSystem.maxEmitPower = 50;
-  particleSystem.updateSpeed = 0.001;
-
-            // particleSystem.manualEmitCount = 30;
-
-            particleSystem.start();
-
-            // return scene;
-        };
-        /******* End of the create scene function ******/
-
-        var scene = createScene(); //Call the createScene function
-
-        // Register a render loop to repeatedly render the scene
-        engine.runRenderLoop(function () {
-                scene.render();
-        });
-
-        // Watch for browser/canvas resize events
-        window.addEventListener("resize", function () {
-                engine.resize();
-        });
-    </script>
 </body>
 </html>
