@@ -9,10 +9,15 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Welcome to Physics Explained!</title>
     <script src="https://preview.babylonjs.com/babylon.js"></script>
     <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
     <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+    <script
+	src="https://code.jquery.com/jquery-3.5.1.js"
+	integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous">
+    </script>
     <!-- <script>scr="index.js"</script> -->
 </head>
 <body>
@@ -62,33 +67,33 @@
         </section> -->
     <section class="mainsection" id="welcome">
         <div class="sectionclouds" id="sectionclouds1">
-            Welcome to Physics explained!
+            Welcome to Physics Explained!
         </div>
-        <img src="quantum.png" id="welcomeimg">
+        <img src="quantum.png" class="homeimgs" id="welcomeimg">
     </section>
     <section class="mainsection" id="about">
-        <div class="sectionclouds">
+        <div class="sectionclouds" id="sectionclouds2">
             On this website we will try and explain everything physics. From starter to university level difficulty.
         </div>
-        <img src="physicsfun.png" id="welcomeimg">
+        <img src="physicsfun.png" class="homeimgs" id="aboutimg">
     </section>
     <section class="mainsection" id="news">
-        <div class="sectionclouds">
+        <div class="sectionclouds" id="sectionclouds3">
             Visit the news section, where we will cover all the latest research and fiction-like discoveries in physics.
         </div>
-        <img src="quantum.png" id="welcomeimg">
+        <img src="quantum.png" class="homeimgs" id="newsimg">
     </section>
     <section class="mainsection" id="questions">
-        <div class="sectionclouds">
+        <div class="sectionclouds" id="sectionclouds4">
             Contact us if you have any questions, or visit the forums and ask the community!
         </div>
-        <img src="quantum.png" id="welcomeimg">
+        <img src="quantum.png" class="homeimgs" id="questionsimg">
     </section>
     <section class="mainsection" id="end">
-        <div class="sectionclouds">
+        <div class="sectionclouds" id="sectionclouds5">
             Have fun exploring and learning all the things physics has to offer!
         </div>
-        <img src="quantum.png" id="welcomeimg">
+        <img src="quantum.png" class="homeimgs" id="endimg">
     </section>
         <!-- <a class="imgs" href="#"><img src="quantum.png"></a>
         <section id="section1">
@@ -114,5 +119,175 @@
     <nav id="Bottomnav">
 
     </nav>
+    <script>
+        // $.fn.isInViewport = function() {
+        //     var elementTop = $(this).offset().top;
+        //     var elementBottom = elementTop + $(this).outerHeight();
+
+        //     var viewportTop = $(window).scrollTop();
+        //     var viewportBottom = viewportTop + $(window).height();
+
+        //     return elementBottom > viewportTop && elementTop < viewportBottom;
+        // };
+        // // $(window).on('resize scroll', function() {
+        // //     $('.color').each(function() {
+        // //         var activeColor = $(this).attr('id');
+        // //         if ($(this).isInViewport()) {
+        // //         $('#fixed-' + activeColor).addClass(activeColor + '-active');
+        // //         } else {
+        // //         $('#fixed-' + activeColor).removeClass(activeColor + '-active');
+        // //         }
+        // //     alert("hi");
+        // //     });
+        // // });
+        // $(window).on('resize scroll', function() {
+        //     // $('.color').each(function() {
+        //         // var activeColor = $(this).attr('id');
+        //         if ($("#about").isInViewport()) {
+        //         // $('#fixed-' + activeColor).addClass(activeColor + '-active');
+        //         // } else {
+        //         // $('#fixed-' + activeColor).removeClass(activeColor + '-active');
+        //         // }
+        //             // alert("hi");
+        //             $("#about").css('color', 'red');
+        //         };
+        //     // });
+        // });
+        // const isOnScreen = (element) => {
+        //   const w = window,
+        //             elBounds = element.getBoundingClientRect(),
+        //             scrollTop = w.pageYOffset,
+        //             elTop = elBounds.y + scrollTop;
+
+        //   return (
+        //       elTop < (w.innerHeight + scrollTop) &&
+        //       elTop > (scrollTop - elBounds.height)
+        //   );
+        // }
+//         const isInViewport = function (elem) {
+// 	const distance = elem.getBoundingClientRect();
+// 	return (
+// 		distance.top >= 0 &&
+// 		distance.left >= 0 &&
+// 		distance.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+// 		distance.right <= (window.innerWidth || document.documentElement.clientWidth)
+// 	);
+// };
+// const welcome = document.querySelector('#welcome');
+// const about = document.querySelector('#about');
+// const news = document.querySelector('#news');
+// const questions = document.querySelector('#questions');
+// const end = document.querySelector('#end');
+
+// window.addEventListener('scroll', function (event) {
+// 	if (isInViewport(welcome)) {
+// 		document.querySelector('#sectionclouds1').classList.add('voorbeeldanimation');
+//         document.querySelector('#welcomeimg').classList.add('voorbeeldimganimation');
+// 	} else if(isInViewport(about)) {
+//         document.querySelector('#sectionclouds2').classList.add('voorbeeldanimation');
+//     } else if(isInViewport(news)) {
+//         console.log('In viewport of news!')
+//     } else if(isInViewport(questions)) {
+//         console.log('In viewport of questions!')
+//     } else if(isInViewport(end)) {
+//         console.log('In viewport of end!')
+//     } else {
+//     console.log('Nope...');
+//   }
+// }, false);
+
+
+// $(document).ready(function(){
+//     let x = 0;
+//   $(document).scroll(function(){
+//     x += 1;
+//     console.log(x);
+//   });
+// });
+
+// Function that detects if something is in the viewport (if it is on physical screen)
+// probleem waarom de animaties niet op tijd laden als je omlaag scrollt is omdat deze functie alleen vanaf boven kijkt bij welke
+// section hij zit, dus zelfs als er nog maar 1 pixel van de section boven in de viewport zit en de rest van de pixels
+// bij de section onder in de viewport zit dan geeft de functie alsnog aan dat je viewport naar de bovenste section kijkt.
+// ik heb het probleem opgelost door de waarde van de viewport te halveren zodat deze functie true returnt wanneer
+// hij detecteert dat meer dan de helft van de viewport een andere section ziet.
+$.fn.isInViewport = function() {
+  var elementTop = $(this).offset().top; //hoe veel pixels van de bovenkant van de pagina het object is
+  var elementBottom = elementTop + (0.5 * $(this).outerHeight());  //outerheight is de hoogte van de viewport, dus elementbottom is de 
+  // hoogte van de viewport plus het aantal pixels die er bovenzitten tot de bovenkant van de pagina, oftewel hoever de onderkant
+  // van de viewport weg is van de bovenkant van de pagina
+
+  var viewportTop = $(window).scrollTop();// deze rekent het precieze aantal pixels uit vanaf de top
+  var viewportBottom = viewportTop + $(window).height();
+
+  return elementBottom > viewportTop && elementTop < viewportBottom; // returnt true of false
+  // true wanneer $(this).outerHeight() (hoogte van de viewport plus de hoogte van het object tot de bovenkant)
+  // groter is dan viewportTop () (het exacte aantal pixels tot de top, die heel vaak verfrist), dus wanneer je zover scrollt dat
+  // je het volgende object hebt bereikt.
+};
+
+// Making variables for all the sections on the page
+const welcome = document.querySelector('#welcome');
+const about = document.querySelector('#about');
+const news = document.querySelector('#news');
+const questions = document.querySelector('#questions');
+const end = document.querySelector('#end');
+
+$('#sectionclouds1,#sectionclouds2,#sectionclouds3,#sectionclouds4,#sectionclouds5,#welcomeimg,#aboutimg,#newsimg,#questionsimg,#endimg').hide();
+
+// Calling the isInViewport function when you're scrolling
+$(window).on('resize scroll load', $(document).ready, function() {
+    if ($(welcome).isInViewport()){
+        $('#sectionclouds1, #welcomeimg').show();
+        document.querySelector('#sectionclouds1').classList.add('text-in-animation');
+        document.querySelector('#welcomeimg').classList.add('img-opacity-animation');
+        console.log("youre viewing the welcome");
+    } else if($(about).isInViewport()){
+        $('#sectionclouds2, #aboutimg').show();
+        document.querySelector('#sectionclouds2').classList.add('text-in-animation');
+        document.querySelector('#aboutimg').classList.add('img-opacity-animation');
+        console.log("youre viewing the about");
+    } else if($(news).isInViewport()){
+        $('#sectionclouds3, #newsimg').show();
+        document.querySelector('#sectionclouds3').classList.add('text-in-animation');
+        document.querySelector('#newsimg').classList.add('img-opacity-animation');
+        console.log("youre viewing the news");
+    } else if($(questions).isInViewport()){
+        $('#sectionclouds4, #questionsimg').show();
+        document.querySelector('#sectionclouds4').classList.add('text-in-animation');
+        document.querySelector('#questionsimg').classList.add('img-opacity-animation');
+        console.log("youre viewing the questions");
+    } else if($(end).isInViewport()){
+        $('#sectionclouds5, #endimg').show();
+        document.querySelector('#sectionclouds5').classList.add('text-in-animation');
+        document.querySelector('#endimg').classList.add('img-opacity-animation');
+        console.log("youre viewing the end");
+    } else {
+        console.log("it is not in vieport");
+    }
+});
+
+// Calling the isInViewport function when the page loads
+// $(document).ready(function(){
+//     if ($(welcome).isInViewport()){
+//         document.querySelector('#sectionclouds1').classList.add('voorbeeldanimation');
+//         document.querySelector('#welcomeimg').classList.add('voorbeeldimganimation');
+//     } else if($(about).isInViewport()){
+//         document.querySelector('#sectionclouds1').classList.add('voorbeeldanimation');
+//         document.querySelector('#welcomeimg').classList.add('voorbeeldimganimation');
+//     } else if($(news).isInViewport()){
+//         document.querySelector('#sectionclouds1').classList.add('voorbeeldanimation');
+//         document.querySelector('#welcomeimg').classList.add('voorbeeldimganimation');
+//     } else if($(questions).isInViewport()){
+//         document.querySelector('#sectionclouds1').classList.add('voorbeeldanimation');
+//         document.querySelector('#welcomeimg').classList.add('voorbeeldimganimation');
+//     } else if($(end).isInViewport()){
+//         document.querySelector('#sectionclouds1').classList.add('voorbeeldanimation');
+//         document.querySelector('#welcomeimg').classList.add('voorbeeldimganimation');
+//     } else {
+//         console.log("it is not in vieport");
+//     }
+// });
+    </script>
 </body>
 </html>

@@ -114,26 +114,21 @@ input[type=button]{
 /* Main */
 main{
     display: flex;
-    /* width: 45%;
-    left: 27.5%;
-    right: 27.5%; */
     width: 100%;
     order: 2;
     align-self: center;
-    flex-direction: column;
-    /* background-color: black; */
-    color: black;
-    background-color: white;  
+    flex-direction: column; 
+    background-image: url(selfrepeating1.png);
 }
 .mainsection{
     height: 100vh;
     width: 100%;
     position: relative;
     display: flex;
-    background-image: url(selfrepeating1.png);
     justify-content: center;
     scroll-snap-align: start;
 }
+
 .sectionclouds{
     display: flex;
     height: 50vh;
@@ -148,25 +143,34 @@ main{
     text-align: center;
     font-size: 35px;
 }
+
 #sectionclouds1{
     font-size: 60px;
-    animation-name: voorbeeld;
+}
+
+/* animatie shit */
+.text-in-animation{
+    animation-name: textin;
     animation-duration: 1.5s;
 }
-@keyframes voorbeeld{
-    from {transform: translateY(-500px);}
-    to {transform: translateY(0px);}
+@keyframes textin{
+    from {transform: translateY(-500px); opacity: 0;}
+    to {transform: translateY(0px); opacity: 1;}
 }
-#welcomeimg{
+.homeimgs{
     display: flex;
     height: 45vh;
     top: 40vh;
     bottom: 15vh;
     position: absolute;
-    animation-name: img1;
+    /* animation-name: img1;
+    animation-duration: 2s; */
+}
+.img-opacity-animation{
+    animation-name: imgopacity;
     animation-duration: 2s;
 }
-@keyframes img1{
+@keyframes imgopacity{
     from{opacity: 0;}
     to{opacity: 1;}
 }
